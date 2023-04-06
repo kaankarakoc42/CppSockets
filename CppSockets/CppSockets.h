@@ -89,33 +89,3 @@ private:
 };
 }
 #endif
-
-
-
-/*
-void handle_connection(socketClient &client,Channels &channels){
-	 while(true){
-		  vector<string> data=split("/",client.recvData());
-		  channels.run(data[0],client,data[1]);
-	 }
-};
-
-int main(){
-	socketClient client = socketClient(AF_INET,SOCK_STREAM);
-	client.Connect("127.0.0.1",54000);
-	Channels channels;
-	channels.add("echo",[](socketClient client,string data){
-		cout<<"[echo]"<<data<<endl;
-	});
-	thread(handle_connection,ref(client),ref(channels)).detach();
-    while(true){
-		string userInput;
-		cout<<"\n>>>";
-		getline(cin,userInput);
-		int rv = client.sendData(userInput);
-		if(SOCKET_ERROR == rv)
-		    break;
-	}
-	client.close();
-}
-*/
